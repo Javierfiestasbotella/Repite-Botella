@@ -13,11 +13,11 @@ class Saimon():
     def __init__(self):
         self.memoria=[]
         self.acumulado=""
-        self.aya=playsound('SAIMON/aya.mp3')
-        self.oyo=playsound('SAIMON/oyo.mp3')
-        self.pi=playsound('SAIMON/pi.mp3')
-        self.itimiti=playsound('SAIMON/itimiti.mp3')
-        self.udupapa=playsound('SAIMON/udupapa.mp3')
+        self.aya=playsound('Repite Botella/aya.mp3')
+        self.oyo=playsound('Repite Botella/oyo.mp3')
+        self.pi=playsound('Repite Botella/pi.mp3')
+        self.itimiti=playsound('Repite Botella/itimiti.mp3')
+        self.udupapa=playsound('Repite Botella/udupapa.mp3')
         self.sonidos=["aya","oyo","pi","udupapa","itimiti"]
         self.aglomerado=[]
         self.r=[]   
@@ -25,15 +25,15 @@ class Saimon():
     def convertir_a_sonido(self,string):#convierte los string de sonodos en SONIDOS
         for i in string:
             if i=="aya":
-              playsound('SAIMON/aya.mp3')
+              playsound('Repite Botella/aya.mp3')
             elif i=="oyo":
-              playsound("SAIMON/oyo.mp3")
+              playsound("Repite Botella/oyo.mp3")
             elif i=="pi":
-              playsound("SAIMON/pi.mp3")
+              playsound("Repite Botella/pi.mp3")
             elif i=="udupapa":
-              playsound("SAIMON/udupapa.mp3")
+              playsound("Repite Botella/udupapa.mp3")
             elif i=="itimiti":
-              playsound("SAIMON/itimiti.mp3")
+              playsound("Repite Botella/itimiti.mp3")
             
     def comprobar_nivel(self,nivel):
       self.contador=len(self.aglomerado)+1
@@ -80,27 +80,6 @@ class Saimon():
       self.tronco.destroy()
       self.rama1.destroy()
 
-    '''def inicio_de_sesion(self,usuario,nombre):
-        global user
-        self.prueba=database.select_user(usuario)
-        while self.prueba!=database.user[1]:
-            messagebox.showinfo(message="Usuario no registrado, compruebe su usuario:", title="Inicio Usuario")
-            e1.set("") 
-            self.rama1.destroy()
-            self.tronco.destroy()
-            
-        self.prueba=database.select_user(usuario)
-        while nombre!=user[2]:
-            messagebox.showinfo(message="Lo siento contraseña errónea, vuelve a intentarlo", title="Inicio Usuario")
-            e2.set("")#aqui hay que poner algo para que no salte
-            self.tronco.destroy()
-            self.rama1.destroy()  
-        messagebox.showinfo(message="Bienvenido {} eres nuestro usuario nº {} y tienes el nivel:{}. Pulsa Empezar y mucha suerte!!".format(user[1],user[0],user[3]), title=user[1])
-        return user[3]
-        return user[1]
-
-        s.poner_nombre()'''
-
     def registrarse(self):#conecta con data.py para registrar los datos en mysql
       database.registrar(e1.get(),e2.get())
       self.tronco.destroy()
@@ -140,7 +119,7 @@ class Saimon():
       self.texto2=StringVar()
       self.texto.set("NIVEL")
 
-      self.fondo=PhotoImage(file="SAIMON/myAvatari (1).gif",width=203,height=248)
+      self.fondo=PhotoImage(file="Repite Botella/myAvatari (1).gif",width=203,height=248)
       self.lblFondo=Label(self.raiz,image=self.fondo).place(x=0,y=0)
 
       Label(self.raiz,text="BOTELLA",bg="black",fg="white",font="arcade").place(x=70,y=5)

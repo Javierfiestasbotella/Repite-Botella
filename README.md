@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <tittle>Sigue a Botella</tittle>
+    <title>Sigue a Botella</title>
     <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
-    <h1 name="titulo1">Titulo</h1>
-    <h2 name="titulo2">Sigue a Botella</h2>
+    <b></b>
+    <h1 name="titulo1"><b>Titulo</b></h1>   
+    <h2 name="titulo2"><i>Sigue a Botella</i></h2>
     <div id="container">
         <h3 name="titulo3">Instrucciones</h3>
         <h4 name="titulo4">registro <p>Debes registrarte para poder comenzar a jugar</p></h4>¿Cómo se juega?

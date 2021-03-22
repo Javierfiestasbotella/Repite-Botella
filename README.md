@@ -24,6 +24,21 @@
             Yu nivel quedará guardado para la próxima vez.
         </p>
     </div>
+     <div><ul>
+        <li>LICENSE
+            <p>LICENSE MIT</p>
+        </li>
+        <li>VISUALES
+            <p>Imágen creada con: https://www.creartuavatar.com/</p>
+        </li>
+        <li>BIBLIGRAFÍA
+            <p>MySQL; Python; Html; css.
+            </p>
+        </li>
+        <li>AUTOR
+            <p>Fº Javier Fiestas Botella</p>
+        </li>
+    </ul></div>
     
 </body>
 </html>

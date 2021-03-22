@@ -10,7 +10,7 @@
 <body>
     <b></b>
     <h1 name="titulo1"><b>Titulo</b></h1>   
-    <h2 name="titulo2"><i><u>Sigue a Botella</u></i></h2>
+    <h2 name="titulo2" align="center"><i>Sigue a Botella</i></h2>
     <div id="container">
         <h3 name="titulo3">Instrucciones</h3>
         <h4 name="titulo4">registro <p>Debes registrarte para poder comenzar a jugar</p></h4>¿Cómo se juega?

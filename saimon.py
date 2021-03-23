@@ -143,6 +143,7 @@ class Saimon():
       self.raiz.mainloop()
 
     def poner_nombre(self):
+      self.raiz.title(self.nombre_usuario)
       self.nombre_usuario=database.nombre_escrito
       
     

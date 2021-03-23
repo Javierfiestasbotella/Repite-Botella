@@ -37,7 +37,7 @@
         </li></font>
         <li<font color="red">AUTOR
             <p>Fº Javier Fiestas Botella</p>
-    <p>Facebook: <a>https://www.facebook.com/jfiestasbotella</a></p>
+    <p>Facebook:https://www.facebook.com/jfiestasbotella</p>
         </li></font>
     </ul></div>
     

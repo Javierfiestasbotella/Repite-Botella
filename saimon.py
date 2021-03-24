@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from random import randrange, choice
 import random
 from playsound import playsound
@@ -48,7 +49,7 @@ class Saimon():
 
     def rafaga(self):#rafaga hay autocompleta el 4 con la variable nivel
         print(database.passw)
-        database.select_user2(e1.get()) 
+        database.select_user(e1.get()) 
         print("--------------")
         print(database.passw)
         global user     
@@ -87,11 +88,14 @@ class Saimon():
     def paso_nivel(self):#comprueba si has acertado la secuencia
       if self.r==self.aglomerado:
         self.texto2.set("ACERTASTE!!!")
+        playsound("Repite Botella/awaka.mp3")
         self.boton7=Button(self.raiz,text="Empezar",bg="#1846FF", activebackground="#FA2821",relief="raised", borderwidth=3,width=8, height=2,command=s.rafaga).place(x=210,y=50)
         database.update_user(len(self.aglomerado),e1.get())
         self.r=[]
       else:
-        messagebox.showinfo(message="Lo siento, vuelve a intentarlo", title="Título")
+        #messagebox.showinfo(message="Lo siento, vuelve a intentarlo", title="Título")
+        playsound("Repite Botella/fallo.mp3")
+
         self.r=[]     
         
     def suena(self,a,b):#crea sonido y lo añade a una lista
@@ -101,9 +105,12 @@ class Saimon():
 
     def reinicio(self):#reiniciar a nivel 1
       p=messagebox.askyesno(message="¿Seguro que quiere reiniciar al nivel 1?", title="Alerta!!!")
+      
       if p==True:
-        self.aglomerado=[]
-        self.r=[]
+        print("funciona")
+        database.update_user(1,e1.get())
+        #self.aglomerado=[]
+        #self.r=[]
         self.boton7=Button(self.raiz,text="Empezar",bg="#1846FF", activebackground="#FA2821",relief="raised", borderwidth=3,width=8, height=2,command=s.rafaga).place(x=210,y=50)
 
     def oportunidad(self):#repetir secuencia
@@ -123,13 +130,13 @@ class Saimon():
       self.lblFondo=Label(self.raiz,image=self.fondo).place(x=0,y=0)
 
       Label(self.raiz,text="BOTELLA",bg="black",fg="white",font="arcade").place(x=70,y=5)
-      self.boton1=Button(self.raiz,text="",bg="#f0c4b0", height=0 ,activebackground="#FA2821",relief="flat",command=lambda:s.suena(playsound("SAIMON/udupapa.mp3"),"udupapa")).place(x=97,y=180)
+      self.boton1=Button(self.raiz,text="",bg="#f0c4b0", height=0 ,activebackground="#FA2821",relief="flat",command=lambda:s.suena(playsound("Repite Botella/udupapa.mp3"),"udupapa")).place(x=97,y=180)
 
-      self.boton2=Button(self.raiz,text="",bg="#f0c4b0",height=0 ,activebackground="#FA2821",relief="flat",command=lambda:s.suena(playsound("SAIMON/itimiti.mp3"),"itimiti")).place(x=97,y=61)
+      self.boton2=Button(self.raiz,text="",bg="#f0c4b0",height=0 ,activebackground="#FA2821",relief="flat",command=lambda:s.suena(playsound("Repite Botella/itimiti.mp3"),"itimiti")).place(x=97,y=61)
 
-      self.boton3=Button(self.raiz,text="",bg="#f0c4b0", activebackground="#FA2821",relief="flat",command=lambda:s.suena(playsound("SAIMON/pi.mp3"),"pi")).place(x=97,y=121)
-      self.boton4=Button(self.raiz,text="",bg="#f0c4b0",activebackground="#FA2821",relief="flat",command=lambda:s.suena(playsound("SAIMON/oyo.mp3"),"oyo")).place(x=35,y=111)
-      self.boton5=Button(self.raiz,text="",bg="#f0c4b0",activebackground="#FA2821",relief="flat",command=lambda:s.suena(playsound("SAIMON/aya.mp3"),"aya")).place(x=160,y=111)
+      self.boton3=Button(self.raiz,text="",bg="#f0c4b0", activebackground="#FA2821",relief="flat",command=lambda:s.suena(playsound("Repite Botella/pi.mp3"),"pi")).place(x=97,y=121)
+      self.boton4=Button(self.raiz,text="",bg="#f0c4b0",activebackground="#FA2821",relief="flat",command=lambda:s.suena(playsound("Repite Botella/oyo.mp3"),"oyo")).place(x=35,y=111)
+      self.boton5=Button(self.raiz,text="",bg="#f0c4b0",activebackground="#FA2821",relief="flat",command=lambda:s.suena(playsound("Repite Botella/aya.mp3"),"aya")).place(x=160,y=111)
 
       self.nombre_usuario=Label(self.raiz).place(x=210,y=5)
       self.boton7a=Button(self.raiz,text="Iniciar Sesión",bg="black",fg="white", activebackground="#FA2821",relief="raised", borderwidth=3,width=12, height=2,command=s.usuario).place(x=175,y=5)

@@ -59,13 +59,13 @@ class Saimon():
         secuencia=random.choice(self.sonidos)
         self.aglomerado.append(secuencia)
         s.convertir_a_sonido(self.aglomerado)
-        self.boton7=Button(self.raiz,text="Empezar",bg="#1846FF", activebackground="#FA2821",relief="raised", borderwidth=3,width=8, height=2,command=s.rafaga,state=DISABLED).place(x=210,y=50)
+        self.boton7=Button(self.raiz,text="Start",bg="#1846FF", activebackground="#FA2821",relief="raised", borderwidth=3,width=8, height=2,command=s.rafaga,state=DISABLED).place(x=210,y=50)
         nivel=len(self.aglomerado)
         self.texto.set("NIVEL "+str(nivel),)
         
     def off_on(self):#dá vida a los botones
 
-      self.boton7=Button(self.raiz,text="Empezar",bg="#1846FF", activebackground="#FA2821",relief="raised", borderwidth=3,width=8, height=2,command=s.rafaga).place(x=210,y=50)
+      self.boton7=Button(self.raiz,text="Start",bg="#1846FF", activebackground="#FA2821",relief="raised", borderwidth=3,width=8, height=2,command=s.rafaga).place(x=210,y=50)
       self.boton8=Button(self.raiz,text="Comprobar",bg="#fce493", activebackground="#FA2821",relief="raised", borderwidth=3,width=8, height=2,command=s.paso_nivel).place(x=210,y=100)
       self.boton9=Button(self.raiz,text="Repetir",bg="#F50505", activebackground="#FA2821",relief="raised", borderwidth=3,width=8, height=2,command=s.oportunidad).place(x=210,y=200)
       self.boton10=Button(self.raiz,text="Reiniciar",bg="#FD0F42", activebackground="#FA2821",relief="raised", borderwidth=3,width=8, height=2,command=s.reinicio).place(x=210,y=150)
@@ -73,7 +73,7 @@ class Saimon():
 
     def inicio_sesion(self):#inicia sesion introduciondo datos en data.py
       database.inicio_de_sesion(e1.get(),e2.get())
-      self.boton7=Button(self.raiz,text="Empezar",bg="#1846FF", activebackground="#FA2821",relief="raised", borderwidth=3,width=8, height=2,command=s.rafaga).place(x=210,y=50)
+      self.boton7=Button(self.raiz,text="Start",bg="#1846FF", activebackground="#FA2821",relief="raised", borderwidth=3,width=8, height=2,command=s.rafaga).place(x=210,y=50)
       self.boton8=Button(self.raiz,text="Comprobar",bg="#fce493", activebackground="#FA2821",relief="raised", borderwidth=3,width=8, height=2,command=s.paso_nivel).place(x=210,y=100)
       self.boton9=Button(self.raiz,text="Repetir",bg="#F50505", activebackground="#FA2821",relief="raised", borderwidth=3,width=8, height=2,command=s.oportunidad).place(x=210,y=200)
       self.boton10=Button(self.raiz,text="Reiniciar",bg="#FD0F42", activebackground="#FA2821",relief="raised", borderwidth=3,width=8, height=2,command=s.reinicio).place(x=210,y=150)
@@ -89,7 +89,7 @@ class Saimon():
       if self.r==self.aglomerado:
         self.texto2.set("ACERTASTE!!!")
         playsound("Repite Botella/awaka.mp3")
-        self.boton7=Button(self.raiz,text="Empezar",bg="#1846FF", activebackground="#FA2821",relief="raised", borderwidth=3,width=8, height=2,command=s.rafaga).place(x=210,y=50)
+        self.boton7=Button(self.raiz,text="Start",bg="#1846FF", activebackground="#FA2821",relief="raised", borderwidth=3,width=8, height=2,command=s.rafaga).place(x=210,y=50)
         database.update_user(len(self.aglomerado),e1.get())
         self.r=[]
       else:
@@ -109,9 +109,9 @@ class Saimon():
       if p==True:
         print("funciona")
         database.update_user(1,e1.get())
-        #self.aglomerado=[]
-        #self.r=[]
-        self.boton7=Button(self.raiz,text="Empezar",bg="#1846FF", activebackground="#FA2821",relief="raised", borderwidth=3,width=8, height=2,command=s.rafaga).place(x=210,y=50)
+        self.aglomerado=[]
+        self.r=[]
+        self.boton7=Button(self.raiz,text="Start",bg="#1846FF", activebackground="#FA2821",relief="raised", borderwidth=3,width=8, height=2,command=s.rafaga).place(x=210,y=50)
 
     def oportunidad(self):#repetir secuencia
       s.convertir_a_sonido(self.aglomerado)
@@ -141,7 +141,7 @@ class Saimon():
       self.nombre_usuario=Label(self.raiz).place(x=210,y=5)
       self.boton7a=Button(self.raiz,text="Iniciar Sesión",bg="black",fg="white", activebackground="#FA2821",relief="raised", borderwidth=3,width=12, height=2,command=s.usuario).place(x=175,y=5)
 
-      self.boton7=Button(self.raiz,text="Empezar",bg="#1846FF", activebackground="#FA2821",relief="raised", borderwidth=3,width=8, height=2,command=s.rafaga,state=DISABLED).place(x=210,y=50)
+      self.boton7=Button(self.raiz,text="Start",bg="#1846FF", activebackground="#FA2821",relief="raised", borderwidth=3,width=8, height=2,command=s.rafaga,state=DISABLED).place(x=210,y=50)
       self.boton8=Button(self.raiz,text="Comprobar",bg="#fce493", activebackground="#FA2821",relief="raised", borderwidth=3,width=8, height=2,command=s.paso_nivel,state=DISABLED).place(x=210,y=100)
       self.boton9=Button(self.raiz,text="Repetir",bg="#F50505", activebackground="#FA2821",relief="raised", borderwidth=3,width=8, height=2,command=s.oportunidad,state=DISABLED).place(x=210,y=200)
       self.boton10=Button(self.raiz,text="Reiniciar",bg="#FD0F42", activebackground="#FA2821",relief="raised", borderwidth=3,width=8, height=2,command=s.reinicio,state=DISABLED).place(x=210,y=150)

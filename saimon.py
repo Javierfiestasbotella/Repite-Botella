@@ -37,24 +37,36 @@ class Saimon():
               playsound("Repite Botella/itimiti.mp3")
             
     def comprobar_nivel(self,nivel):
-      self.contador=len(self.aglomerado)+1
+      '''
+      >>> s.comprobar_nivel(3)
+
+      '''
+      self.contador=len(self.aglomerado)
       while nivel!=self.contador:
         secuencia=random.choice(self.sonidos)
         self.aglomerado.append(secuencia)
         self.contador=self.contador+1
       #s.convertir_a_sonido(self.aglomerado)
-      print(self.aglomerado)
+      #print(self.aglomerado)
       #return self.aglomerado
+      #self.aglomerado=self.contador
+
+    def ayuda(self):
+      messagebox.showinfo(message="Instrucciones \n\n Start:-> Empieza la secuencia de tu nivel \n\n Comprobar:-> Comprueba si la secuencia introducida                                         es igual a la dada por tu nivel \n\n Reiniciar:-> Para volver al nivel 1  \n\n Repetir:-> Repite la última secuancia de tu nivel \n\n Salir:-> Sale de la sesion \n\n Nota:-> Recuerda superar los niveles sin hacer trampa porque solo te engañarías a ti mismo. SUERTE!!!", title="Inicio Usuario")
+
+
+
 
 
     def rafaga(self):#rafaga hay autocompleta el 4 con la variable nivel
-        print(database.passw)
+
+      
         database.select_user(e1.get()) 
-        print("--------------")
-        print(database.passw)
         global user     
         self.texto2.set("")
+        
         s.comprobar_nivel(database.passw)
+        
         #s.convertir_a_sonido(self.aglomerado)   
         secuencia=random.choice(self.sonidos)
         self.aglomerado.append(secuencia)
@@ -77,9 +89,18 @@ class Saimon():
       self.boton8=Button(self.raiz,text="Comprobar",bg="#fce493", activebackground="#FA2821",relief="raised", borderwidth=3,width=8, height=2,command=s.paso_nivel).place(x=210,y=100)
       self.boton9=Button(self.raiz,text="Repetir",bg="#F50505", activebackground="#FA2821",relief="raised", borderwidth=3,width=8, height=2,command=s.oportunidad).place(x=210,y=200)
       self.boton10=Button(self.raiz,text="Reiniciar",bg="#FD0F42", activebackground="#FA2821",relief="raised", borderwidth=3,width=8, height=2,command=s.reinicio).place(x=210,y=150)
-      self.nombre_usuario=database.nombre_escrito
+      self.boton7a=Button(self.raiz,text="Iniciar Sesión",bg="black",fg="white", activebackground="#FA2821",relief="raised", borderwidth=3,width=12, height=2,command=s.usuario,state=DISABLED).place(x=175,y=5)
+
+      self.raiz.title(database.nombre_escrito)
       self.tronco.destroy()
       self.rama1.destroy()
+    
+    def salir_de_sesion(self):
+      self.aglomerado=[]
+      self.r=[]
+      self.boton7a=Button(self.raiz,text="Iniciar Sesión",bg="black",fg="white", activebackground="#FA2821",relief="raised", borderwidth=3,width=12, height=2,command=s.usuario).place(x=175,y=5)
+      self.texto.set("NIVEL ",)
+
 
     def registrarse(self):#conecta con data.py para registrar los datos en mysql
       database.registrar(e1.get(),e2.get())
@@ -119,7 +140,7 @@ class Saimon():
     def interfaz(self):#pantalla interfaz principal
       self.raiz=Tk()
       self.nombre_usuario="Bienvenido!!!"
-      self.raiz.geometry("280x290+0+0")
+      self.raiz.geometry("280x300+0+0")
       self.raiz.iconbitmap("rubik.ico")
       self.raiz.title(self.nombre_usuario)
       self.texto=StringVar()
@@ -145,6 +166,9 @@ class Saimon():
       self.boton8=Button(self.raiz,text="Comprobar",bg="#fce493", activebackground="#FA2821",relief="raised", borderwidth=3,width=8, height=2,command=s.paso_nivel,state=DISABLED).place(x=210,y=100)
       self.boton9=Button(self.raiz,text="Repetir",bg="#F50505", activebackground="#FA2821",relief="raised", borderwidth=3,width=8, height=2,command=s.oportunidad,state=DISABLED).place(x=210,y=200)
       self.boton10=Button(self.raiz,text="Reiniciar",bg="#FD0F42", activebackground="#FA2821",relief="raised", borderwidth=3,width=8, height=2,command=s.reinicio,state=DISABLED).place(x=210,y=150)
+      self.boton11=Button(self.raiz,text="Salir",bg="black",fg="white", activebackground="#FA2821",relief="raised", borderwidth=3,width=8, height=2,command=s.salir_de_sesion).place(x=210,y=250)
+      self.boton12=Button(self.raiz,text="?",bg="white",fg="black", activebackground="#FA2821",relief="raised", borderwidth=3,width=4, height=2,command=s.ayuda).place(x=165,y=250)
+
       self.mensaje=Label(self.raiz,textvariable=self.texto2,font="arcade 10",fg="blue").place(x=50,y=230)
       self.posicion=Label(self.raiz,textvariable=self.texto,font="arcade 20",bg="#31677B",fg="white").place(x=50,y=250)
       self.raiz.mainloop()
@@ -240,7 +264,9 @@ s = Saimon()
 
 s.interfaz()
 #s.comprobar_nivel(1)
-
+if __name__=='__main__':
+  import doctest
+  doctest.testmod()  
 
    
    
